@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #263238;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h3 {
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-export input {
+  padding: 6px;
+  margin-right: 10px;
+}
+
+.filter-btn,
+.export-btn {
+  margin-left: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+.table-section {
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  background-color: white;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+}
+
+.status-completed {
+  background-color: #d32f2f;
+}
+
+.status-pending {
+  background-color: #f57c00;
+}
+
+.status-active {
+  background-color: #388e3c;
+}
+
+.view-btn,
+.interview-btn {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.interview-btn {
+  background-color: #2196f3;
+  color: white;
+}
