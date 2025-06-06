@@ -1,0 +1,155 @@
+import React from "react";
+import "./InterviewDashboard.css";
+
+const students = [
+  {
+    name: "Emma Watson",
+    profile: "Emma",
+    department: "Computer Science",
+    passedOut: 2023,
+    status: "Completed",
+    action: "Rejected",
+  },
+  {
+    name: "Daniel Lee",
+    profile: "Daniel",
+    department: "Electrical",
+    passedOut: 2022,
+    status: "Pending",
+    action: "Pending",
+  },
+  {
+    name: "Sophia Chen",
+    profile: "Sophia",
+    department: "Biotechnology",
+    passedOut: 2024,
+    status: "Active",
+    action: "Pending",
+  },
+  {
+    name: "Michael Brown",
+    profile: "Michael",
+    department: "Mechanical",
+    passedOut: 2021,
+    status: "Completed",
+    action: "Accepted",
+  },
+  {
+    name: "Olivia Wilson",
+    profile: "Olivia",
+    department: "Chemistry",
+    passedOut: 2023,
+    status: "Pending",
+    action: "Rejected",
+  },
+  {
+    name: "James Taylor",
+    profile: "James",
+    department: "Physics",
+    passedOut: 2022,
+    status: "Completed",
+    action: "Pending",
+  },
+  {
+    name: "Ava Martinez",
+    profile: "Ava",
+    department: "Mathematics",
+    passedOut: 2024,
+    status: "Active",
+    action: "Pending",
+  },
+  {
+    name: "William Anderson",
+    profile: "William",
+    department: "Civil",
+    passedOut: 2021,
+    status: "Completed",
+    action: "Accepted",
+  },
+  {
+    name: "Mia Thomas",
+    profile: "Mia",
+    department: "Aerospace",
+    passedOut: 2023,
+    status: "Pending",
+    action: "Pending",
+  },
+];
+
+const getStatusClass = (status) => {
+  switch (status.toLowerCase()) {
+    case "completed":
+      return "status-completed";
+    case "pending":
+      return "status-pending";
+    case "active":
+      return "status-active";
+    default:
+      return "";
+  }
+};
+
+const InterviewDashboard = () => {
+  return (
+    <div className="dashboard">
+      <aside className="sidebar">
+        <h3>Interview Dashboard</h3>
+        <ul>
+          <li>📋 Students</li>
+          <li>🗓️ Interviews</li>
+          <li>⚙️ Settings</li>
+        </ul>
+      </aside>
+
+      <main className="main">
+        <header className="header">
+          <h2>Welcome, Staff</h2>
+          <div className="search-export">
+            <input type="text" placeholder="Search by name..." />
+            <button className="filter-btn">Filters ⬇️</button>
+            <button className="export-btn">Export</button>
+          </div>
+        </header>
+
+        <section className="table-section">
+          <h3>Student Details</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Profile Image</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Passed Out</th>
+                <th>Status</th>
+                <th>Interviewer Actions</th>
+                <th>Interviewer Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {students.map((student, index) => (
+                <tr key={index}>
+                  <td>{student.profile}</td>
+                  <td>{student.name}</td>
+                  <td>{student.department}</td>
+                  <td>{student.passedOut}</td>
+                  <td>
+                    <span className={`status-badge ${getStatusClass(student.status)}`}>
+                      {student.status}
+                    </span>
+                  </td>
+                  <td>{student.action}</td>
+                  <td>
+                    <button className="view-btn">👁️ View</button>
+                    <button className="interview-btn">📝 Interview</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  );
+};
+
+export default InterviewDashboard;
