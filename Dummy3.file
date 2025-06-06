@@ -1,0 +1,72 @@
+import React, { useState } from "react";
+
+const InterviewForm = () => {
+  const [formData, setFormData] = useState({
+    candidateName: "",
+    position: "",
+    department: "",
+    interviewedBy: "",
+    availableStart: "",
+    salaryRange: "",
+    q1: "",
+    q2: "",
+    q3: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    alert("Form submitted successfully!");
+  };
+
+  return (
+    <div style={{ fontFamily: "Arial, sans-serif", padding: "20px" }}>
+      <div style={{ background: "#4CAF50", color: "white", padding: "15px", fontSize: "20px" }}>
+        CANDIDATE INTERVIEW FORM
+      </div>
+
+      <form onSubmit={handleSubmit} style={{ marginTop: "20px" }}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+          <input type="text" name="candidateName" placeholder="Candidate Name" value={formData.candidateName} onChange={handleChange} />
+          <input type="text" name="position" placeholder="Position Applied For" value={formData.position} onChange={handleChange} />
+          <input type="text" name="department" placeholder="Department" value={formData.department} onChange={handleChange} />
+          <input type="text" name="interviewedBy" placeholder="Interviewed By" value={formData.interviewedBy} onChange={handleChange} />
+          <input type="date" name="availableStart" value={formData.availableStart} onChange={handleChange} />
+          <input type="text" name="salaryRange" placeholder="Expected Salary Range" value={formData.salaryRange} onChange={handleChange} />
+        </div>
+
+        <h3 style={{ marginTop: "30px", background: "#4CAF50", color: "white", padding: "10px" }}>
+          INTERVIEW QUESTIONS
+        </h3>
+
+        <div>
+          <label>
+            Describe your experience directly related to the position:
+            <textarea name="q1" value={formData.q1} onChange={handleChange} rows="3" style={{ width: "100%" }} />
+          </label>
+
+          <label>
+            Describe your experience indirectly related to the position:
+            <textarea name="q2" value={formData.q2} onChange={handleChange} rows="3" style={{ width: "100%" }} />
+          </label>
+
+          <label>
+            Do you have experience working alone or in a team?:
+            <textarea name="q3" value={formData.q3} onChange={handleChange} rows="3" style={{ width: "100%" }} />
+          </label>
+        </div>
+
+        <button type="submit" style={{ marginTop: "20px", padding: "10px 20px", background: "#4CAF50", color: "white", border: "none", cursor: "pointer" }}>
+          EVALUATE THE CANDIDATE'S SUITABILITY
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default InterviewForm;
